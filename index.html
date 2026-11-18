@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=bc541843-a98c-4b33-bd74-b4a48f140c4e
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>יובל שחף · תיק עבודות</title>
+<meta name="description" content="יובל שחף: מנהל סושיאל ויוצר תוכן. ניהול סושיאל, סרטוני AI, משפיענים, UGC והמלצות, עם תוצאות אמיתיות.">
+<link rel="alternate" hreflang="en" href="en.html">
+<link rel="alternate" hreflang="he" href="index.html">
+<meta property="og:title" content="יובל שחף · תיק עבודות">
+<meta property="og:description" content="ניהול סושיאל, סרטוני AI, משפיענים ותוצאות אמיתיות.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#eeebe6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karantina:wght@400;700&family=Amatic+SC:wght@700&family=Assistant:wght@400;600;800&display=swap">
+<style>
+:root{
+  --paper:#eeebe6; --ink:#2f2b28; --ink-soft:#5e5853; --navy:#1d3b6e; --marker:#ffe14d; --pink:#ff5d8f; --card:#fbfaf7; --line:#cfc9bf;
+  --display-lat:"Instrument Serif","Times New Roman",serif; --display-he:"Karantina","Arial Narrow",sans-serif;
+  --hand-he:"Amatic SC","Comic Sans MS",cursive; --body:"Assistant","Arial Hebrew",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.7;overflow-x:hidden}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+section{padding:96px 0;border-bottom:1px dashed var(--line);position:relative;overflow:hidden}
+h2{font-family:var(--display-he);font-size:clamp(44px,9vw,78px);line-height:1.05;margin:0 0 6px;font-weight:700}
+.kicker{font-family:var(--display-lat);font-style:italic;font-size:22px;color:var(--ink-soft);margin:0}
+.sub{color:var(--ink-soft);margin:10px 0 36px}
+
+/* מרקר: מכסה את כל האות לגובה מלא ונמרח פנימה בכניסה */
+.mk{
+  background-image:linear-gradient(var(--marker),var(--marker));
+  background-repeat:no-repeat;background-position:100% 50%;background-size:0% 100%;
+  padding:.02em .22em;margin:0 -.05em;border-radius:.12em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  transition:background-size .9s cubic-bezier(.2,.8,.2,1) .25s;
+}
+.in .mk,.mk.in{background-size:100% 100%}
+.sketch-bar{background:var(--ink);color:#fff;text-align:center;padding:8px 12px;font-size:14px}
+
+/* תנועה: כניסה בגלילה */
+.rv{opacity:0;transform:translateY(34px) rotate(var(--r,0deg));transition:opacity .7s ease,transform .8s cubic-bezier(.2,.9,.25,1.2);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:translateY(0) rotate(var(--r,0deg))}
+.pop{opacity:0;transform:scale(.6) rotate(-6deg);transition:opacity .5s ease,transform .7s cubic-bezier(.3,1.6,.4,1);transition-delay:var(--d,0s)}
+.pop.in{opacity:1;transform:scale(1) rotate(var(--r,0deg))}
+
+/* אלמנטים צפים של סושיאל */
+.fl{position:absolute;pointer-events:none;z-index:0;animation:float 7s ease-in-out infinite}
+.fl.b{animation-duration:9s;animation-delay:-3s}
+.fl.c{animation-duration:11s;animation-delay:-6s}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-22px) rotate(calc(var(--rot,0deg) + 8deg))}}
+.fl svg{display:block;width:100%;height:100%;filter:drop-shadow(0 8px 14px rgba(0,0,0,.18))}
+.heart{width:54px;height:54px;fill:var(--pink)}
+.bubble{width:92px;height:70px}
+.bell{width:50px;height:50px}
+.playb{width:62px;height:62px}
+.phone{width:122px;aspect-ratio:9/19;border-radius:28px;background:#121212;padding:6px;box-shadow:0 18px 34px rgba(0,0,0,.28),inset 0 0 0 2px #333}
+.phone::before{content:"";position:absolute;top:10px;left:50%;width:34%;height:9px;border-radius:9px;background:#000;transform:translateX(-50%);z-index:2}
+.phone img{width:100%;height:100%;object-fit:cover;border-radius:22px;display:block}
+.phone .hrt{position:absolute;bottom:14px;right:12px;width:26px;height:26px;fill:#fff;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
+
+/* hero */
+.hero{text-align:center;padding-top:44px}
+.hero .big{direction:ltr;font-family:var(--display-lat);font-size:clamp(52px,12vw,120px);line-height:.95;margin:0}
+.hero .big span{display:inline-block;animation:letter .8s cubic-bezier(.3,1.6,.4,1) both}
+@keyframes letter{from{opacity:0;transform:translateY(40px) rotate(-8deg)}}
+.hero h1{font-family:var(--display-he);font-size:clamp(46px,10vw,82px);margin:10px 0 0;color:var(--navy);line-height:1}
+.hero .tags{color:var(--ink-soft);letter-spacing:.06em}
+.stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:26px 0}
+.stat{background:var(--card);padding:16px 26px;box-shadow:0 6px 18px rgba(0,0,0,.12);transform:rotate(-2deg);transition:transform .3s cubic-bezier(.3,1.6,.4,1)}
+.stat:nth-child(2){transform:rotate(2deg)}
+.stat:hover{transform:rotate(0) scale(1.08)}
+.stat b{display:block;font-family:var(--display-he);font-size:52px;line-height:1}
+.me{width:min(340px,82%);margin:14px auto;background:#fff;padding:10px 10px 14px;box-shadow:0 14px 34px rgba(0,0,0,.22);transform:rotate(-1.5deg)}
+.me{display:block;color:inherit;text-decoration:none;transition:transform .35s cubic-bezier(.3,1.6,.4,1)}
+.me:hover{transform:rotate(0) scale(1.03)}
+.me img{width:100%;display:block}
+.ig-tag{display:block;margin-top:10px;font-weight:800;font-size:15px;color:var(--navy)}
+.lead{font-size:21px;max-width:640px;margin:18px auto 0}
+
+/* סרטונים */
+.vid{position:relative;aspect-ratio:9/16;background:#000;border-radius:14px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.2);cursor:pointer;transition:transform .35s cubic-bezier(.3,1.6,.4,1),box-shadow .3s}
+.vid:hover{transform:translateY(-8px) rotate(-1.2deg);box-shadow:0 16px 30px rgba(0,0,0,.28)}
+.vid img,.vid video{width:100%;height:100%;object-fit:cover;display:block}
+.vid .play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(transparent 55%,rgba(0,0,0,.65))}
+.vid .play i{width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.93);display:grid;place-items:center;font-style:normal;font-size:24px;color:#111;animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.vid .cap{position:absolute;bottom:10px;right:12px;left:12px;color:#fff;font-weight:800;font-size:15px;line-height:1.2;text-shadow:0 1px 6px #000}
+.vid.playing .play{display:none}
+.vids{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.scroller{display:flex;gap:14px;overflow-x:auto;padding:8px 4px 18px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.scroller>*{flex:0 0 auto;scroll-snap-align:start}
+.scroller .vid{width:178px}
+.hint{font-size:14px;color:var(--ink-soft);margin:0 0 4px}
+
+/* לוגואים */
+.logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:22px 14px}
+.logo{text-align:center;font-size:14px;line-height:1.25}
+.logo img{width:92px;height:92px;border-radius:50%;box-shadow:0 3px 10px rgba(0,0,0,.18);display:block;margin:0 auto 8px;transition:transform .4s cubic-bezier(.3,1.8,.4,1)}
+.logo:hover img{transform:scale(1.2) rotate(-6deg)}
+.logo b{display:block;font-size:15px}
+.logo small{display:block;color:var(--ink-soft);font-size:12.5px}
+.badge{display:inline-block;background:var(--navy);color:#fff;border-radius:99px;padding:0 9px;font-size:11px;margin-top:3px}
+.group-title{font-family:var(--hand-he);font-size:28px;color:var(--ink-soft);margin:30px 0 12px}
+.note{background:var(--card);border-right:6px solid var(--marker);padding:14px 18px;box-shadow:0 4px 14px rgba(0,0,0,.08);max-width:720px}
+
+/* מאחורי הקלעים */
+.bts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:var(--card);box-shadow:0 6px 18px rgba(0,0,0,.1);padding:16px;transition:transform .35s cubic-bezier(.3,1.6,.4,1)}
+.card:hover{transform:translateY(-6px) rotate(-.8deg)}
+.card h3{margin:0 0 4px;font-size:22px}
+.card p{margin:0 0 12px;color:var(--ink-soft);font-size:15px;line-height:1.45}
+.card .imgs{display:flex;gap:8px}
+.card .imgs img{flex:1;min-width:0;width:100%;border-radius:8px;display:block;cursor:zoom-in;box-shadow:0 3px 10px rgba(0,0,0,.14)}
+.card .one img{border-radius:8px;width:100%}
+.blur-tag{display:inline-block;background:var(--ink);color:#fff;border-radius:99px;font-size:12px;padding:0 10px;margin-bottom:8px}
+
+/* תוצאות */
+.bignums{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0 30px}
+.bn{background:var(--navy);color:#fff;padding:20px 14px;text-align:center;border-radius:6px;transform:rotate(var(--r,0deg))}
+.bn b{display:block;font-family:var(--display-he);font-size:clamp(44px,7vw,64px);line-height:1;color:var(--marker)}
+.bn span{font-size:14px;line-height:1.3;display:block;margin-top:6px}
+.res{display:flex;gap:18px;overflow-x:auto;padding:8px 4px 22px;scroll-snap-type:x proximity;align-items:flex-start}
+.res figure{margin:0;flex:0 0 auto;width:300px;scroll-snap-align:start}
+.res .shot{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.28);cursor:zoom-in;transition:transform .35s cubic-bezier(.3,1.6,.4,1)}
+.res figure:hover .shot{transform:translateY(-8px) scale(1.02)}
+.res .shot img{width:100%;display:block}
+.res figcaption{font-size:14.5px;line-height:1.4;margin-top:10px}
+.res figcaption b{display:block;font-size:16px}
+.hl{position:absolute;background:rgba(255,225,77,.5);outline:2px solid var(--marker);border-radius:6px;box-shadow:0 0 0 0 rgba(255,225,77,.7);animation:glow 2s ease-out infinite}
+@keyframes glow{0%{box-shadow:0 0 0 0 rgba(255,225,77,.8)}100%{box-shadow:0 0 0 14px rgba(255,225,77,0)}}
+.more{width:300px;aspect-ratio:4/5;border:3px dashed #b9b2a6;display:grid;place-items:center;text-align:center;color:#8a8379;font-family:var(--hand-he);font-size:28px;padding:20px;flex:0 0 auto}
+
+/* סטוריז נעים */
+.marquee{overflow:hidden;direction:ltr;margin:10px -20px}
+.track{display:flex;gap:12px;width:max-content;animation:slide 60s linear infinite}
+.marquee.rev .track{animation-direction:reverse;animation-duration:75s}
+.marquee:hover .track{animation-play-state:paused}
+.track .st{width:210px;flex:0 0 auto;margin:0}
+.track .st img{width:100%;height:auto;border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.22);display:block;cursor:zoom-in}
+.track .st .un{display:flex;align-items:center;gap:8px;margin-top:8px;padding:4px 12px 4px 4px;background:#fff;border:2px solid var(--marker);border-radius:99px;font-weight:800;font-size:13.5px;direction:ltr;white-space:nowrap;overflow:hidden}
+.track .st .un img{width:30px;height:30px;border-radius:50%;object-fit:cover;box-shadow:none;flex:0 0 auto;cursor:default}
+.track .st .un bdi{overflow:hidden;text-overflow:ellipsis}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.plans img{width:100%;border-radius:8px;box-shadow:0 3px 10px rgba(0,0,0,.14);display:block;cursor:zoom-in}
+@keyframes slide{to{transform:translateX(-50%)}}
+.qg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.qg img{width:100%;border-radius:14px;display:block;box-shadow:0 6px 16px rgba(0,0,0,.2);transition:transform .35s cubic-bezier(.3,1.6,.4,1);cursor:zoom-in}
+.qg img:hover{transform:rotate(-2deg) scale(1.04)}
+
+.xp{list-style:none;padding:0;margin:0}
+.xp li{padding:12px 0;border-bottom:1px solid var(--line)}
+.xp b{font-family:var(--display-he);font-size:26px;font-weight:400;color:var(--navy);margin-left:10px}
+.contact{text-align:center}
+.btn{display:inline-block;background:var(--ink);color:#fff;padding:12px 28px;border-radius:99px;text-decoration:none;font-weight:800;margin:6px;transition:transform .3s cubic-bezier(.3,1.8,.4,1),background .2s}
+.btn:hover{transform:translateY(-5px) scale(1.07);background:var(--navy)}
+
+/* לידים */
+.leads-grid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 16px;-webkit-overflow-scrolling:touch}
+.lead-card{flex:0 0 270px;scroll-snap-align:start;background:var(--card);box-shadow:0 6px 18px rgba(0,0,0,.1);padding:14px;border-radius:14px}
+.lead-card .chat .b{font-size:14px;padding:8px 12px}
+.lead-card .who{font-size:12.5px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.chat .tag{align-self:center;background:#bfe8c4;color:#1e4a26;border-radius:99px;padding:2px 14px;font-size:13px;font-weight:800}
+.chat{display:flex;flex-direction:column;gap:9px}
+.chat .b{max-width:88%;padding:9px 14px;border-radius:18px;font-size:15px;line-height:1.4}
+.chat .them{align-self:flex-start;background:#e9e9ee;border-bottom-right-radius:4px;color:#222}
+.chat .me2{align-self:flex-end;background:#7b3fe4;color:#fff;border-bottom-left-radius:4px}
+.chat .ph{background:#bfe8c4}
+.leads-txt b{font-size:20px}
+.leads-txt p{margin:8px 0 0;color:var(--ink-soft)}
+.leads-txt .tiny{font-size:13px}
+
+/* כל קטגוריה: שורה שגוררים הצידה */
+.logos,.vids,.bts,.qg{display:flex;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;padding:6px 4px 16px;scrollbar-width:thin}
+.logos{gap:18px 14px}
+.logos .logo{flex:0 0 128px;scroll-snap-align:start}
+.vids{gap:16px}.vids .vid{flex:0 0 210px;scroll-snap-align:start}
+.bts{gap:20px;align-items:flex-start}.bts .card{flex:0 0 300px;scroll-snap-align:start}.bts .card.wide{flex-basis:560px}
+.qg{gap:14px;align-items:flex-start}.qg img{flex:0 0 230px;width:230px}
+.drag{cursor:grab}
+.drag.dragging{cursor:grabbing;scroll-snap-type:none}
+.drag.dragging *{pointer-events:none}
+
+/* אלמנטים קטנים שזזים בגלילה */
+.fx{position:absolute;z-index:0;pointer-events:none;will-change:transform;opacity:.85}
+.fx svg{display:block;width:100%;height:100%;animation:float 8s ease-in-out infinite;filter:drop-shadow(0 4px 6px rgba(0,0,0,.14))}
+.card.wide{grid-column:span 2}
+.card .imgs{align-items:flex-start}
+.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:6px 0 14px}
+.timeline .m{background:var(--navy);color:#fff;border-radius:10px;padding:10px 4px;text-align:center;line-height:1.1}
+.timeline .m span{display:block;font-size:13px;opacity:.85}
+.timeline .m b{font-family:var(--display-he);font-size:44px;color:var(--marker);font-weight:400}
+.tl-note{font-size:15px;line-height:2}
+.chip{display:inline-block;border-radius:99px;padding:0 12px;margin-right:6px;font-size:13px;font-weight:800;color:#222}
+.chip.ok{background:#bfe8c4}.chip.no{background:#d9d9d9}.chip.wait{background:#ffbf5e}.chip.bad{background:#ff8d85}
+#lead{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px;max-width:640px;margin:0 auto 18px;text-align:right;position:relative}
+#lead label{font-weight:600;font-size:15px;display:block}
+#lead label.full,#lead button,#lead #lead-msg{grid-column:1/-1}
+#lead input,#lead select,#lead textarea{width:100%;margin-top:4px;padding:11px 12px;border:2px solid var(--line);border-radius:12px;background:var(--card);font:inherit;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+#lead input:focus,#lead select:focus,#lead textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 4px rgba(29,59,110,.15)}
+#lead button{border:0;cursor:pointer;font:inherit;font-weight:800;justify-self:center;padding:13px 44px}
+.btn.wa{background:#25d366;color:#0b2e17}
+.btn.wa:hover{background:#1da851;color:#fff}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn.alt:hover{color:#fff}
+#lead-msg{min-height:1.5em;margin:0;text-align:center}
+#lead-msg.ok{color:#1e6b34;font-weight:800}
+#lead-msg.err{color:#b3261e;font-weight:800}
+#lead button:disabled{opacity:.6;cursor:wait}
+
+/* תפריט צד */
+#menu-btn{position:fixed;top:calc(10px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);z-index:90;display:flex;align-items:center;justify-content:center;gap:9px;height:40px;padding:0 18px;border:0;border-radius:99px;background:rgba(47,43,40,.9);color:#fff;font:inherit;font-weight:800;font-size:14px;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:transform .35s cubic-bezier(.3,1.2,.4,1),opacity .3s}
+#menu-btn:hover{transform:translateX(-50%) scale(1.05)}
+#menu-btn.hide{transform:translate(-50%,-80px);opacity:0;pointer-events:none}
+#menu-btn i{width:16px;height:2px;box-shadow:0 5px 0 #fff,0 -5px 0 #fff}
+#menu-btn i{display:block;width:18px;height:2px;background:#fff;box-shadow:0 6px 0 #fff,0 -6px 0 #fff}
+#drawer{position:fixed;top:0;right:0;bottom:0;width:min(300px,84vw);z-index:95;background:var(--card);box-shadow:-10px 0 40px rgba(0,0,0,.25);transform:translateX(105%);transition:transform .35s cubic-bezier(.2,.9,.25,1);padding:calc(18px + env(safe-area-inset-top)) 22px calc(22px + env(safe-area-inset-bottom));display:flex;flex-direction:column;overflow-y:auto}
+#drawer.on{transform:none}
+#drawer h3{font-family:var(--display-he);font-size:34px;margin:0 0 10px;font-weight:700;color:var(--navy)}
+#drawer a.nav{display:block;padding:12px 14px;border-radius:12px;color:var(--ink);text-decoration:none;font-weight:600;font-size:17px;transition:background .2s,transform .2s}
+#drawer a.nav:hover{background:#efeae1;transform:translateX(-4px)}
+#drawer a.nav.cur{background:var(--marker);font-weight:800}
+#drawer .quick{margin-top:auto;padding-top:18px;display:flex;flex-direction:column;gap:8px}
+#drawer .quick .btn{margin:0;text-align:center}
+#close-menu{position:absolute;top:calc(12px + env(safe-area-inset-top));left:14px;width:40px;height:40px;border:0;border-radius:50%;background:#efeae1;font-size:22px;cursor:pointer}
+#scrim{position:fixed;inset:0;background:rgba(15,15,15,.45);z-index:94;opacity:0;pointer-events:none;transition:opacity .3s}
+#scrim.on{opacity:1;pointer-events:auto}
+.hero{padding-top:70px}
+
+/* הגדלה */
+#lb{position:fixed;inset:0;background:rgba(15,15,15,.88);display:none;place-items:center;z-index:99;padding:20px;cursor:zoom-out}
+#lb.on{display:grid}
+#lb img{max-width:min(96vw,900px);max-height:92vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+
+@media(max-width:760px){
+  .fx{display:none} .leads{grid-template-columns:1fr} .card.wide{grid-column:auto} #lead{grid-template-columns:1fr}
+  .card.wide .imgs{flex-wrap:wrap} .card.wide .imgs img{flex:1 1 46%}
+  .vids{grid-template-columns:repeat(2,1fr)}
+  .bignums{grid-template-columns:repeat(2,1fr)} .qg{grid-template-columns:repeat(2,1fr)}
+  .track .st{width:170px} .res figure,.more{width:260px} .plans{grid-template-columns:1fr}
+  .vids .vid{flex-basis:170px} .bts .card.wide{flex-basis:300px} .qg img{flex-basis:200px;width:200px}
+}
+/* ניהול סושיאל: 6 בכל עמוד */
+.logos.paged{gap:0;scroll-snap-type:x mandatory;padding:6px 0 10px}
+.logos.paged .pg{flex:0 0 100%;scroll-snap-align:start;display:grid;grid-template-columns:repeat(3,1fr);gap:26px 12px;padding:0 6px;align-content:start}
+.logos.paged .logo{flex:none}
+.dots{display:flex;gap:8px;justify-content:center;margin:2px 0 4px}
+.dots button{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:#cfc9bf;cursor:pointer;transition:transform .25s,background .25s}
+.dots button.on{background:var(--navy);transform:scale(1.35)}
+
+.auto{scroll-snap-type:none!important;scroll-behavior:auto}
+/* שורות סרטונים שזזות */
+.marquee.vm{margin:14px -20px;padding:8px 0}
+.marquee.vm .track{gap:16px;animation-duration:var(--dur,60s)}
+.marquee.vm .vid{flex:0 0 var(--vw,210px);width:var(--vw,210px);direction:rtl}
+.marquee.vm:has(.vid.playing) .track,.marquee.vm.touch .track{animation-play-state:paused}
+
+/* חצים לגלילה */
+.arw{position:relative}
+.arw-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:44px;height:44px;border-radius:50%;border:0;padding:0;background:#fff;color:var(--ink);box-shadow:0 4px 16px rgba(0,0,0,.28);display:grid;place-items:center;cursor:pointer;transition:transform .25s,opacity .25s,background .2s}
+.arw-btn:hover{transform:translateY(-50%) scale(1.1);background:var(--marker)}
+.arw-btn.prev{right:-6px}
+.arw-btn.next{left:-6px}
+.arw-btn.prev svg{transform:none}
+.arw-btn.next svg{transform:scaleX(-1)}
+.arw-btn[disabled]{opacity:0;pointer-events:none}
+.arw.noscroll .arw-btn{display:none}
+@media(max-width:760px){ .arw-btn{width:38px;height:38px} .arw-btn.prev{right:-2px} .arw-btn.next{left:-2px} }
+
+/* גדלים אחידים בשורות, בלי מקומות ריקים */
+.res figure{width:auto;flex:0 0 auto}
+.res .shot img{width:auto;height:440px;max-width:none}
+.res figcaption{width:0;min-width:100%}
+.more{width:300px;height:440px;aspect-ratio:auto}
+.bts{align-items:stretch}
+.bts .card,.bts .card.wide{flex:0 0 auto;width:max-content}
+.card p{width:0;min-width:100%}
+.card .imgs{height:320px;display:flex;gap:8px}
+.card .imgs img,.card .one img{height:320px;width:auto;flex:none;object-fit:cover}
+.plans{display:grid;grid-template-rows:repeat(2,156px);grid-auto-flow:column;grid-auto-columns:max-content;gap:8px}
+.plans img{height:156px;width:auto}
+.bts .card.tl{width:380px}
+.qg img{flex:0 0 300px;width:300px}
+@media(max-width:760px){
+  .res .shot img{height:380px} .more{height:380px;width:240px}
+  .qg img{flex-basis:230px;width:230px}
+  .card .imgs,.card .imgs img,.card .one img{height:260px}
+  .plans{grid-template-rows:repeat(2,126px)} .plans img{height:126px}
+  .bts .card.tl{width:300px}
+}
+/* כפתור הפעלה יפה: זכוכית עם משולש מעוגל וטבעת פועמת */
+.vid .play i{position:relative;width:72px;height:72px;font-size:0;color:transparent;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z' fill='white'/%3E%3C/svg%3E") 50% 50%/46% no-repeat,rgba(255,255,255,.22);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:2px solid rgba(255,255,255,.95);box-shadow:0 6px 20px rgba(0,0,0,.35);animation:none}
+.vid .play i::before{content:"";position:absolute;inset:-2px;border-radius:50%;border:2px solid rgba(255,255,255,.7);animation:ring 2.4s ease-out infinite}
+.vid .play i::after{content:none}
+@keyframes ring{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.55);opacity:0}}
+.vid:hover .play i{background-color:rgba(255,255,255,.34);transform:scale(1.08)}
+
+/* גרפיקה בגלילה: פס התקדמות וכתמי צבע רכים שזזים לאט */
+#prog{position:fixed;top:0;left:0;right:0;height:4px;z-index:96;transform-origin:right center;transform:scaleX(0);background:linear-gradient(270deg,var(--marker),var(--pink),var(--navy));pointer-events:none}
+.blob{position:absolute;z-index:0;border-radius:50%;filter:blur(70px);opacity:.38;pointer-events:none;will-change:transform}
+
+/* תפריט נקודות בשולי המסך במסכים רחבים: לא מסתיר כלום */
+#rail{display:none}
+@media(min-width:1200px){
+  #rail{position:fixed;top:50%;right:14px;transform:translateY(-50%);z-index:80;display:flex;flex-direction:column;gap:6px}
+  #rail a{position:relative;display:block;width:34px;height:20px;text-decoration:none}
+  #rail a::before{content:"";position:absolute;top:50%;right:11px;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:#bdb6aa;transition:transform .25s,background .25s}
+  #rail a:hover::before{transform:scale(1.35);background:var(--navy)}
+  #rail a.cur::before{background:var(--navy);transform:scale(1.5)}
+  #rail a span{position:absolute;top:50%;right:34px;transform:translateY(-50%) translateX(8px);background:var(--ink);color:#fff;font-size:13px;font-weight:700;padding:3px 12px;border-radius:99px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+  #rail a:hover span{opacity:1;transform:translateY(-50%)}
+}
+
+/* התאמה לכל מכשיר: אייפון, אנדרואיד, אייפד ומחשב */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);padding-bottom:env(safe-area-inset-bottom)}
+.drag{overscroll-behavior-x:contain}
+.dots button{position:relative}
+.dots button::after{content:"";position:absolute;inset:-14px}
+.dots{gap:14px}
+#lead input,#lead select,#lead textarea{font-size:16px}
+@media(min-width:1280px){ .wrap{max-width:1160px} body{font-size:18px} }
+@media(min-width:1600px){ .wrap{max-width:1320px} body{font-size:19px} .vids .vid{flex-basis:260px} .logos.paged .logo img{width:104px;height:104px} }
+@media(max-width:380px){ .logos.paged .pg{gap:22px 6px} .logo b{font-size:14px} .stat{padding:14px 18px} .stat b{font-size:44px} }
+@media(orientation:landscape) and (max-height:500px){ section{padding:40px 0} .me{width:min(240px,50vw)} }
+.lang-switch{position:absolute;top:12px;left:14px;z-index:5;background:#fff;color:var(--ink);padding:6px 14px;border-radius:99px;font-weight:800;font-size:14px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.lang-switch:hover{background:var(--marker)}
+/* לוגואים: בלי קפיצה כשמחליקים לעמוד הבא */
+.logo.pop{opacity:1!important;transform:none!important;transition:none!important}
+/* נגישות */
+.skip{position:absolute;top:-60px;right:12px;z-index:200;background:var(--navy);color:#fff;padding:10px 18px;border-radius:0 0 12px 12px;font-weight:800;text-decoration:none;transition:top .2s}
+.skip:focus{top:0}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+:focus-visible{outline:3px solid var(--navy);outline-offset:3px;box-shadow:0 0 0 6px #fff}
+#menu-btn:focus-visible,#motion-btn:focus-visible,.arw-btn:focus-visible{outline-color:#fff;box-shadow:0 0 0 3px var(--navy),0 0 0 6px #fff}
+main:focus{outline:none}
+.req{color:#b3261e;font-weight:800}
+#lead .consent{display:flex;gap:10px;align-items:flex-start;font-weight:400;line-height:1.5}
+#lead .consent input{width:22px;height:22px;margin:3px 0 0;flex:0 0 22px;accent-color:var(--navy)}
+#lead .consent a{color:var(--navy);font-weight:800}
+address.biz{font-style:normal;margin:10px auto 0;max-width:620px;color:var(--ink-soft);line-height:1.8;text-align:center}
+address.biz a{color:var(--navy);font-weight:700}
+.site-footer{background:var(--ink);color:#fff;padding:28px 0 calc(28px + env(safe-area-inset-bottom));text-align:center;font-size:15px}
+.site-footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;margin-bottom:12px}
+.site-footer a{color:#fff;font-weight:700;text-underline-offset:4px}
+.site-footer a:focus-visible{outline-color:#fff}
+.site-footer p{margin:0 auto;max-width:720px;opacity:.9;line-height:1.6;font-size:14px}
+#drawer .drawer-title{font-family:var(--display-he);font-size:34px;margin:0 0 10px;font-weight:700;color:var(--navy)}
+#motion-btn{position:fixed;left:calc(12px + env(safe-area-inset-left));bottom:calc(12px + env(safe-area-inset-bottom));z-index:90;height:40px;padding:0 16px;border:2px solid var(--ink);border-radius:99px;background:#fff;color:var(--ink);font:inherit;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+#motion-btn[aria-pressed="true"]{background:var(--ink);color:#fff}
+#lb-close{position:absolute;top:calc(14px + env(safe-area-inset-top));left:16px;width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:#111;font-size:28px;line-height:1;cursor:pointer;z-index:2}
+.nomotion *,.nomotion *::before,.nomotion *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+.nomotion .rv,.nomotion .pop{opacity:1!important;transform:none!important}
+.nomotion .mk{background-size:100% 100%!important}
+.nomotion .blob,.nomotion #prog{display:none!important}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv,.pop{opacity:1;transform:none}.mk{background-size:100% 100%}
+}
+</style>
+</head>
+<body>
+
+
+<a class="skip" href="#main">דלגו לתוכן הראשי</a>
+<a class='lang-switch' href='/en' hreflang='en' lang='en'>English</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol>
+  </defs>
+</svg>
+
+<main id="main" tabindex="-1">
+<!-- פתיחה -->
+<section class="hero">
+  <div class="wrap">
+    <p class="big" id="bigtitle" aria-hidden="true">My Portfolio</p>
+    <h1 class="rv"><span class="mk">יובל שחף</span></h1>
+    <div class="tags rv" style="--d:.15s">סושיאל · תוכן · צילום · עריכה · AI</div>
+    <div class="stats">
+      <div class="stat pop" style="--d:.2s"><b data-count="23.4" data-suffix="K">23.4K</b>עוקבים באינסטגרם</div>
+      <div class="stat pop" style="--d:.35s"><b data-count="10" data-suffix="K">10K</b>עוקבים בטיקטוק</div>
+    </div>
+    <a class="me pop" style="--r:-1.5deg;--d:.4s" href="https://www.instagram.com/yuval_shachaf1/" target="_blank" rel="noopener" aria-label="לעמוד האינסטגרם של יובל">
+      <img src="images/me.jpg" alt="יובל שחף"><span class="ig-tag"><bdi>@yuval_shachaf1</bdi> · לעמוד באינסטגרם</span>
+    </a>
+    <p class="lead rv">אני לא רק מעלה פוסטים. אני בונה תוכן ש<span class="mk">אנשים עוצרים בשבילו</span>.</p>
+  </div>
+</section>
+
+<!-- שירותים -->
+<section id="services" style="scroll-margin-top:10px;padding:56px 0">
+<div class="wrap" style="text-align:center">
+<p class="kicker">What I Do</p>
+<h2 class="rv" style="font-size:clamp(36px,7vw,60px)">מה אני <span class="mk">מציע</span></h2>
+<p class="sub">השירותים המרכזיים שלי — מותאמים לעסקים, מותגים ויוצרים.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:16px">
+<div class="rv" style="background:var(--card);border-radius:14px;padding:28px 20px;box-shadow:0 4px 14px rgba(0,0,0,.08);text-align:center">
+<div style="font-size:36px;margin-bottom:10px">🎬</div>
+<h3 style="font-family:var(--body);font-size:20px;margin:0 0 8px;font-weight:700">סרטוני AI ותוכן</h3>
+<p style="color:var(--ink-soft);font-size:15px;line-height:1.5;margin:0">יצירת סרטוני AI, עריכת וידאו ותוכן ויזואלי שעוצר את הסקרול.</p>
+</div>
+<div class="rv" style="background:var(--card);border-radius:14px;padding:28px 20px;box-shadow:0 4px 14px rgba(0,0,0,.08);text-align:center;--d:.1s">
+<div style="font-size:36px;margin-bottom:10px">📱</div>
+<h3 style="font-family:var(--body);font-size:20px;margin:0 0 8px;font-weight:700">ניהול סושיאל</h3>
+<p style="color:var(--ink-soft);font-size:15px;line-height:1.5;margin:0">ניהול מלא של עמודי אינסטגרם וטיקטוק — אסטרטגיה, תוכן ופרסום.</p>
+</div>
+<div class="rv" style="background:var(--card);border-radius:14px;padding:28px 20px;box-shadow:0 4px 14px rgba(0,0,0,.08);text-align:center;--d:.2s">
+<div style="font-size:36px;margin-bottom:10px">🤝</div>
+<h3 style="font-family:var(--body);font-size:20px;margin:0 0 8px;font-weight:700">שיתופי פעולה ו-UGC</h3>
+<p style="color:var(--ink-soft);font-size:15px;line-height:1.5;margin:0">תוכן ממותג, סטוריז ופוסטים לעסקים ומסעדות.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- AI -->
+<section>
+  <div class="wrap">
+    <p class="kicker">AI Videos</p>
+    <h2 class="rv">סרטוני <span class="mk">AI</span></h2>
+    <p class="sub">לחצו על סרטון כדי לראות אותו. סרטון אחד בכל פעם.</p>
+    <div class="vids">
+      <div class="vid rv" style="--d:0s" data-src="videos/ai/ai-4.mp4"><img src="videos/ai/ai-4.jpg" alt=""><div class="play"><i>▶</i></div><div class="cap">פסטיבל אוכל · נמל תל אביב</div></div>
+      <div class="vid rv" style="--d:.1s" data-src="videos/ai/ai-3.mp4"><img src="videos/ai/ai-3.jpg" alt=""><div class="play"><i>▶</i></div><div class="cap">מלון מאייר האוס · קוקטייל ליד הבריכה</div></div>
+      <div class="vid rv" style="--d:.2s" data-src="videos/ai/ai-2.mp4"><img src="videos/ai/ai-2.jpg" alt=""><div class="play"><i>▶</i></div><div class="cap">לואי · קוקטייל</div></div>
+      <div class="vid rv" style="--d:.3s" data-src="videos/ai/ai-1.mp4"><img src="videos/ai/ai-1.jpg" alt=""><div class="play"><i>▶</i></div><div class="cap">סרטים בתל אביב</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ניהול סושיאל -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Social Management</p>
+    <h2 class="rv">ניהול <span class="mk">סושיאל</span></h2>
+    <p class="sub">ניהלתי סושיאל דרך stitch media וגם לבד, לעסקים מכל מיני תחומים.</p>
+    <div class="logos">
+      <div class="logo pop" style="--d:0s"><img src="images/logos/beit-goldberg.png" alt=""><b>בית גולדברג</b><small>מסעדה ובר</small><span class="badge">משפיענים</span></div>
+      <div class="logo pop" style="--d:.05s"><img src="images/logos/sachi.png" alt=""><b>סאצ׳י סושי</b><small>מסעדה ובר</small></div>
+      <div class="logo pop" style="--d:.1s"><img src="images/logos/gazzetta.png" alt=""><b>גאזטה</b><small>מסעדה ובר</small></div>
+      <div class="logo pop" style="--d:.15s"><img src="images/logos/rooftop98.png" alt=""><b>רופטופ 98</b><small>מסעדה ובר</small><span class="badge">משפיענים</span></div>
+      <div class="logo pop" style="--d:.2s"><img src="images/logos/louis.png" alt=""><b>לואי</b><small>מסעדה ובר</small><span class="badge">משפיענים</span></div>
+      <div class="logo pop" style="--d:.25s"><img src="images/logos/mayer-house.png" alt=""><b>מאייר האוס</b><small>מלון</small><span class="badge">משפיענים</span></div>
+      <div class="logo pop" style="--d:.3s"><img src="images/logos/extreme-group.png" alt=""><b>אקסטרים גרופ</b><small>כלים חשמליים</small></div>
+      <div class="logo pop" style="--d:.35s"><img src="images/logos/david-shaul.png" alt=""><b>דוד שאול</b><small>ספר</small></div>
+      <div class="logo pop" style="--d:.4s"><img src="images/logos/hair-system.png" alt=""><b>הייר סיסטם</b><small>תוספות שיער</small></div>
+      <div class="logo pop" style="--d:.45s"><img src="images/logos/webnail.png" alt=""><b>וובנייל</b><small>לק וציפורניים</small></div>
+      <div class="logo pop" style="--d:.5s"><img src="images/logos/bambini.png" alt=""><b>במביני</b><small>גן ילדים</small></div>
+      <div class="logo pop" style="--d:.55s"><img src="images/logos/bagira.png" alt=""><b>בגירה</b><small>אסתטיקה וספא ראש</small></div>
+      <div class="logo pop" style="--d:.6s"><img src="images/logos/q-gallery.png" alt=""><b>Q Gallery</b><small>משפיענים בלבד</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- משפיענים ותוצאות -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Influencers & Results</p>
+    <h2 class="rv">משפיענים <span class="mk">ותוצאות</span></h2>
+    <p class="sub">משפיענים שהבאתי לעסקים והמספרים שיצאו מזה. הכול צילומים אמיתיים מהחשבונות, חתוכים לחלק החשוב.</p>
+
+    <div class="bignums">
+      <div class="bn pop" style="--r:-2deg"><b data-count="1.89" data-dec="2" data-suffix="M">1.89M</b><span>צפיות ב-90 יום · בית גולדברג</span></div>
+      <div class="bn pop" style="--r:1.5deg;--d:.1s"><b data-count="1.76" data-dec="2" data-suffix="M">1.76M</b><span>צפיות לרילס אחד · מאייר האוס</span></div>
+      <div class="bn pop" style="--r:-1deg;--d:.2s"><b data-count="96" data-suffix="%">96%</b><span>מהצפיות מאנשים שלא עוקבים · בית גולדברג</span></div>
+      <div class="bn pop" style="--r:2deg;--d:.3s"><b data-count="541" data-suffix="K">541K</b><span>צפיות לפוסט הגרלה · מאייר האוס</span></div>
+    </div>
+
+    <div class="group-title">צילומי Insights אמיתיים</div>
+    <div class="res">
+      <figure class="rv" style="--d:.15s"><div class="shot"><img src="images/res2/mh-reel-2.jpg" alt=""><span class="hl" style="left:70.5%;top:64.2%;width:24%;height:2.6%"></span><span class="hl" style="left:10%;top:67%;width:30%;height:2.6%"></span></div><figcaption><b>מאייר האוס · רילס</b>837K צפיות, 402 עוקבים חדשים, בשיתוף עם <bdi>dikla_official</bdi> ועם <bdi>magi_azarzar_sabag</bdi></figcaption></figure>
+      <figure class="rv"><div class="shot"><img src="images/res2/bg-90days.jpg" alt=""></div><figcaption><b>בית גולדברג · 90 יום</b>1.89M צפיות, 96.3% מהן מאנשים שלא עוקבים</figcaption></figure>
+      <figure class="rv" style="--d:.05s"><div class="shot"><img src="images/res2/bg-reel.jpg" alt=""></div><figcaption><b>בית גולדברג · רילס</b>175K צפיות</figcaption></figure>
+      <figure class="rv" style="--d:.1s"><div class="shot"><img src="images/res2/mh-reel-1.jpg" alt=""><span class="hl" style="left:70.5%;top:77%;width:22.5%;height:3.2%"></span></div><figcaption><b>מאייר האוס · רילס</b>1.76M צפיות, בשיתוף עם <bdi>roma.dobrikov</bdi></figcaption></figure>
+      <figure class="rv" style="--d:.2s"><div class="shot"><img src="images/res2/mh-giveaway.jpg" alt=""></div><figcaption><b>מאייר האוס · פוסט הגרלה</b>541K צפיות, 514 עוקבים חדשים</figcaption></figure>
+      <figure class="rv" style="--d:.25s"><div class="shot"><img src="images/res2/mh-post.jpg" alt=""></div><figcaption><b>מאייר האוס · פוסט הגרלה</b>96K צפיות, 2,858 אינטראקציות</figcaption></figure>
+      <figure class="rv" style="--d:.3s"><div class="shot"><img src="images/res2/mh-90days.jpg" alt=""></div><figcaption><b>מאייר האוס · 90 יום</b>733K צפיות</figcaption></figure>
+      <figure class="rv" style="--d:.35s"><div class="shot"><img src="images/res2/mh-followers.jpg" alt=""></div><figcaption><b>מאייר האוס · עוקבים</b>11.4K עוקבים</figcaption></figure>
+      <figure class="rv" style="--d:.4s"><div class="shot"><img src="images/res2/ds-90days.jpg" alt=""></div><figcaption><b>דוד שאול · 90 יום</b>490K צפיות, 90% מהן מאנשים שלא עוקבים, 249 עוקבים חדשים</figcaption></figure>
+      <figure class="rv" style="--d:.45s"><div class="shot"><img src="images/res2/ds-reel.jpg" alt=""></div><figcaption><b>דוד שאול · רילס</b>89.5K צפיות, 3,947 צופים</figcaption></figure>
+    </div>
+
+    <h3 class="group-title">לידים והזמנות</h3>
+    <p class="sub">פניות אמיתיות שהגיעו להודעות באינסטגרם. כתבתי אותן מחדש בלי שמות וטלפונים. אפשר לגרור הצידה או ללחוץ על החצים.</p>
+    <div class="leads-grid">
+      <div class="lead-card rv"><div class="who">דוד שאול · תוספות שיער</div><div class="chat">
+        <div class="b them">היי, מה המחיר לקורס?</div>
+        <div class="b me2">היוש, מה שלומך? אשמח שתשלחי לי את הטלפון שלך ונחזור אליך 💕🙏</div>
+        <div class="b them">אשמח לפרטים</div>
+        <div class="tag">השאיר/ה טלפון ✔</div></div></div>
+      <div class="lead-card rv" style="--d:.08s"><div class="who">דוד שאול · תוספות שיער</div><div class="chat">
+        <div class="b them">מחפשת שיער מתולתל, 100 גרם</div>
+        <div class="b me2">היוש, מה שלומך? אשמח שתשלחי לי את הטלפון שלך ונחזור אליך 💕🙏</div>
+        <div class="tag">השאיר/ה טלפון ✔</div></div></div>
+      <div class="lead-card rv" style="--d:.16s"><div class="who">דוד שאול · תוספות שיער</div><div class="chat">
+        <div class="b them">היי, אתם עושים גם השתלמויות?</div>
+        <div class="b me2">כמובן :)</div>
+        <div class="b me2">אשמח שתשלחי לי את הטלפון שלך ונחזור אליך 💕🙏</div>
+        <div class="tag">השאיר/ה טלפון ✔</div></div></div>
+      <div class="lead-card rv" style="--d:.24s"><div class="who">דוד שאול · תוספות שיער</div><div class="chat">
+        <div class="b them">היי, מה המחיר לצמיד שיער 100 גרם?</div>
+        <div class="b me2">היוש, מה שלומך? אשמח שתשלחי לי את הטלפון שלך ונחזור אליך 💕🙏</div>
+        <div class="tag">השאיר/ה טלפון ✔</div></div></div>
+      <div class="lead-card rv" style="--d:.32s"><div class="who">בית גולדברג · הזמנת מקום</div><div class="chat">
+        <div class="b them">היי, יש מקום ל-4 אנשים היום בשעה 21:30?</div>
+        <div class="b me2">שלום, זוהי הודעה אוטומטית מבית גולדברג, הבר המסעדה הכי שמח ברוטשילד! שמירת מקומות דרך הקישור או בטלפון ❤️</div>
+        <div class="tag">פנייה לשמירת מקום</div></div></div>
+      <div class="lead-card rv" style="--d:.4s"><div class="who">לואי · הזמנת מקום</div><div class="chat">
+        <div class="b them">היי! נשמח לבוא להפי אוור. תוכלו לחזור אליי?</div>
+        <div class="b me2">היי! הזמנת מקומות דרך הלינק שבביו או בטלפון 🙏</div>
+        <div class="tag">השאיר/ה טלפון ✔</div></div></div>
+      <div class="lead-card rv" style="--d:.48s"><div class="who">לואי · הזמנת מקום</div><div class="chat">
+        <div class="b them">היי, מה נשמע? אני רוצה להזמין מקום ליום שישי בערב לחגוג יומולדת ל-12 אנשים. זה אפשרי?</div>
+        <div class="b me2">היי! הזמנת מקומות דרך הלינק שבביו או בטלפון 🙏</div>
+        <div class="tag">הזמנת יומולדת</div></div></div>
+      <div class="lead-card rv" style="--d:.56s"><div class="who">בית גולדברג · אירוע פרטי</div><div class="chat">
+        <div class="b them">היי, אשמח לקבל פרטים על אירועים פרטיים</div>
+        <div class="b me2">שלום, זוהי הודעה אוטומטית מבית גולדברג, הבר המסעדה הכי שמח ברוטשילד! שמירת מקומות דרך הקישור או בטלפון ❤️</div>
+        <div class="tag">פנייה לאירוע פרטי</div></div></div>
+    </div>
+
+    <div class="group-title">הסטוריז של המשפיענים · בית גולדברג</div>
+    <div class="marquee"><div class="track" id="t1"></div></div>
+    <div class="group-title">הסטוריז של המשפיענים · מאייר האוס</div>
+    <div class="marquee rev"><div class="track" id="t2"></div></div>
+
+    <div class="group-title">Q Gallery · פוסטים משותפים</div>
+    <div class="qg">
+      <img class="rv" src="images/qg/qg-6714.jpg" alt=""><img class="rv" style="--d:.08s" src="images/qg/qg-6715.jpg" alt="">
+      <img class="rv" style="--d:.16s" src="images/qg/qg-6716.jpg" alt=""><img class="rv" style="--d:.24s" src="images/qg/qg-6717.jpg" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- שיתופי פעולה -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Videos & Collabs</p>
+    <h2 class="rv">שיתופי <span class="mk">פעולה</span></h2>
+    <p class="sub">סרטונים ושיתופי פעולה, כולל 30+ מסעדות מכל הארץ. כל שיתוף פעולה מותאם אישית למותג ולקהל היעד שלו.</p>
+    <div class="logos">
+      <div class="logo pop"><img src="images/logos/xl.png" alt=""><b>XL</b><small>משקה אנרגיה</small></div>
+      <div class="logo pop" style="--d:.05s"><img src="images/logos/osher-ad.png" alt=""><b>אושר עד</b><small>רשת סופרמרקטים</small></div>
+      <div class="logo pop" style="--d:.1s"><img src="images/logos/nova.png" alt=""><b>נובה</b><small>ארגון הסברה</small></div>
+      <div class="logo pop" style="--d:.15s"><img src="images/logos/israeli-spirit.png" alt=""><b>מטה ההסברה האזרחי</b><small>סרטונים על ישראל</small></div>
+      <div class="logo pop" style="--d:.2s"><img src="images/logos/ono.png" alt=""><b>אונו</b><small>אגודת הסטודנטים</small></div>
+      <div class="logo pop" style="--d:.25s"><img src="images/logos/akotika.png" alt=""><b>עכותיקה</b><small>מלון</small></div>
+      <div class="logo pop" style="--d:.3s"><img src="images/logos/golda.png" alt=""><b>גולדה</b><small>גלידה</small></div>
+      <div class="logo pop" style="--d:.35s"><img src="images/logos/black.png" alt=""><b>Black</b><small>מסעדה</small></div>
+      <div class="logo pop" style="--d:.4s"><img src="images/logos/alaya.png" alt=""><b>Alaya</b><small>כפר נופש ווילנס</small></div>
+      <div class="logo pop" style="--d:.45s"><img src="images/logos/petah-tikva.png" alt=""><b>פתח תקווה</b><small>העיר</small></div>
+      <div class="logo pop" style="--d:.5s"><img src="images/logos/tel-aviv-eat.png" alt=""><b>Tel Aviv Eat</b><small>פסטיבל אוכל</small></div>
+      <div class="logo pop" style="--d:.55s"><img src="images/logos/dizengoff-center.png" alt=""><b>דיזנגוף סנטר</b><small>קניון</small></div>
+    </div>
+
+    <div class="group-title">המלצות וסקירות מסעדות · 30+ ברחבי הארץ</div>
+    <div class="note rv"><b>מה זה המלצה או סקירה?</b> אני מגיע למקום, מצלם את האוכל, האווירה והמקום, ומספר מה חשבתי. כמו חבר שממליץ לכם, לא כמו פרסומת.</div>
+    <p class="hint" style="margin-top:12px">תלחצו על סרטון כדי לראות אותו</p>
+    <div class="scroller">
+      <div class="vid" data-src="videos/recs2/jos.mp4"><img src="videos/recs2/jos.jpg" alt=""><div class="play"><i>▶</i></div><div class="cap">ג׳וס</div></div>
+      <div class="vid" data-src="videos/recs2/habaar.mp4"><img src="videos/recs2/habaar.jpg" alt=""><div class="play"><i>▶</i></div><div class="cap">הבאר</div></div>
+      <div class="vid" data-src="videos/recs2/agadir.mp4"><img src="videos/recs2/agadir.jpg" alt=""><div class="play"><i>▶</i></div><div class="cap">אגאדיר</div></div>
+      <div class="vid" data-src="videos/recs2/christmas.mp4"><img src="videos/recs2/christmas.jpg" alt=""><div class="play"><i>▶</i></div><div class="cap">כריסמס</div></div>
+      <div class="vid" data-src="videos/recs2/akiko.mp4"><img src="videos/recs2/akiko.jpg" alt=""><div class="play"><i>▶</i></div><div class="cap">אקיקו</div></div>
+      <div class="vid" data-src="videos/recs2/taeat.mp4"><img src="videos/recs2/taeat.jpg" alt=""><div class="play"><i>▶</i></div><div class="cap">תל אביב אוכל</div></div>
+      <div class="vid" data-src="videos/recs2/noema.mp4"><img src="videos/recs2/noema.jpg" alt=""><div class="play"><i>▶</i></div><div class="cap">נואמה</div></div>
+      <div class="vid" data-src="videos/recs2/yomangs.mp4"><img src="videos/recs2/yomangs.jpg" alt=""><div class="play"><i>▶</i></div><div class="cap">יומנגס</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- UGC -->
+<section>
+  <div class="wrap">
+    <p class="kicker">UGC</p>
+    <h2 class="rv"><span class="mk">UGC</span></h2>
+    <div class="note rv"><b>מה זה UGC?</b> סרטונים שנראים כמו סרטון של לקוח אמיתי ולא כמו פרסומת. אני מכין אותם למוצרים כמו תיק, קורס ומיישר כתפיים.</div>
+    <p class="hint" style="margin-top:12px">תלחצו על סרטון כדי לראות אותו</p>
+    <div class="scroller">
+      <div class="vid" data-src="videos/more/ugc-bag.mp4"><img src="videos/more/ugc-bag.jpg" alt=""><div class="play"><i>▶</i></div><div class="cap">תיק מתקפל</div></div>
+      <div class="vid" data-src="videos/more/ugc-2.mp4"><img src="videos/more/ugc-2.jpg" alt=""><div class="play"><i>▶</i></div><div class="cap">קורס דיגיטלי</div></div>
+      <div class="vid" data-src="videos/more/ugc-3.mp4"><img src="videos/more/ugc-3.jpg" alt=""><div class="play"><i>▶</i></div><div class="cap">מיישר כתפיים</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- מאחורי הקלעים -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Behind The Scenes</p>
+    <h2 class="rv">לא רק פוסטים: <span class="mk">הכול במקום אחד</span></h2>
+    <p class="sub">גריד, סטוריז, גאנט חודשי, קריאייטיב ותיאום משפיענים. לחצו על תמונה כדי להגדיל.</p>
+    <div class="bts">
+      <div class="card rv"><h3>גריד תוכן</h3><p>ככה הפרופיל נראה מלמעלה.</p>
+        <div class="imgs"><img src="images/cr/grid-mh.jpg" alt=""><img src="images/cr/grid-bg.jpg" alt=""></div></div>
+      <div class="card rv" style="--d:.1s"><h3>סטוריז</h3><p>סטוריז של לואי, מעוצבים ומוכנים לעלייה.</p>
+        <div class="one"><img src="images/cr/stories-canva.jpg" alt="" style="cursor:zoom-in"></div></div>
+      <div class="card wide rv" style="--d:.2s"><h3>תוכנית וגאנט חודשי</h3><p>תוכנית סושיאל לחודש של מאייר האוס: כמה סטוריז ופוסטים, ולכל פוסט תאריך, טקסט ועיצוב.</p>
+        <div class="plans"><img src="images/cr/plan-a.jpg" alt=""><img src="images/cr/plan-b.jpg" alt=""><img src="images/cr/plan-c.jpg" alt=""><img src="images/cr/plan-d.jpg" alt=""></div></div>
+      <div class="card rv" style="--d:.3s"><h3>מיתוג ולוחות צבעים</h3><p>לכל לקוח יש שפה עיצובית אחת שחוזרת בכל מקום.</p>
+        <div class="imgs"><img src="images/cr/board-bg.jpg" alt=""><img src="images/cr/board-mh.jpg" alt=""></div></div>
+      <div class="card wide rv" style="--d:.1s"><h3>תסריטים וקריאייטיב</h3><p>רעיונות לסרטונים, תסריטים וקריאייטיב ליום צילום, כולל מצגת טרנדים לעיר פתח תקווה.</p>
+        <div class="plans"><img src="images/cr/pt-1.jpg" alt=""><img src="images/cr/pt-2.jpg" alt=""><img src="images/cr/pt-3.jpg" alt=""><img src="images/cr/shoot-day.jpg" alt=""></div></div>
+      <div class="card tl rv" style="--d:.2s"><h3>תיאום משפיענים</h3><p>טבלה לכל חודש עם סטטוס לכל משפיען. בלי שמות ובלי פרטים אישיים.</p>
+        <div class="timeline">
+          <div class="m"><span>אפריל</span><b>5</b></div>
+          <div class="m"><span>מאי</span><b>4</b></div>
+          <div class="m"><span>יוני</span><b>4</b></div>
+          <div class="m"><span>יולי</span><b>6</b></div>
+          <div class="m"><span>אוגוסט</span><b>3</b></div>
+        </div>
+        <div class="tl-note"><b>22 משפיענים</b> במאייר האוס, מאפריל עד אוגוסט. לכל אחד תאריך וסטטוס:
+          <span class="chip ok">כן</span><span class="chip no">לא</span><span class="chip wait">נדחה</span><span class="chip bad">בוטלה</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">Experience</p>
+    <h2 class="rv">ניסיון ו<span class="mk">לימודים</span></h2>
+    <ul class="xp">
+      <li class="rv"><b>2025 →</b>מנהל סושיאל · stitch media</li>
+      <li class="rv"><b>2024 →</b>משפיען ויוצר תוכן · עמוד אישי</li>
+      <li class="rv"><b>2023–2024</b>מש״ק דיגיטל · חיל החינוך והנוער <img src="images/logos/idf-education.png" alt="" style="width:28px;vertical-align:middle;border-radius:50%"></li>
+      <li class="rv"><b>לימודים</b>פרסום ותקשורת שיווקית · הקריה האקדמית אונו <img src="images/logos/ono.png" alt="" style="width:28px;vertical-align:middle;border-radius:50%"></li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact" style="border-bottom:0">
+  <div class="wrap">
+    <h2 class="rv">יש לכם עסק שצריך <span class="mk">תוכן</span>? דברו איתי</h2>
+    <p class="sub">משאירים פרטים ואני חוזר אליכם. שדות עם כוכבית הם חובה.</p>
+    <form id="lead" class="rv" autocomplete="on" aria-describedby="lead-msg">
+      <label>שם מלא <span class="req" aria-hidden="true">*</span><input name="name" required aria-required="true" autocomplete="name"></label>
+      <label>טלפון <span class="req" aria-hidden="true">*</span><input name="phone" type="tel" required aria-required="true" autocomplete="tel" inputmode="tel"></label>
+      <label class="full">דוא״ל <span class="req" aria-hidden="true">*</span><input name="email" type="email" required aria-required="true" autocomplete="email" inputmode="email" dir="ltr" style="text-align:right"></label>
+      <label class="full">הודעה <span class="req" aria-hidden="true">*</span><textarea name="message" rows="4" required aria-required="true"></textarea></label>
+      <label class="full consent"><input type="checkbox" name="consent" required aria-required="true"><span>קראתי את <a href='/privacy' rel='noopener' target='_blank'>מדיניות הפרטיות<span class="sr-only"> (נפתח בלשונית חדשה)</span></a> ואני מאשר/ת ליובל לשמור את הפרטים ולחזור אליי.<span class="req" aria-hidden="true">*</span></span></label>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+      <button class="btn" type="submit">שליחת הפנייה</button>
+      <p id="lead-msg" class="sub" role="status" aria-live="polite"></p>
+    </form>
+    <p class="sub" style="margin:6px 0 0">או פשוט לכתוב לי:</p>
+    <p class="rv"><a class="btn alt" href="https://www.instagram.com/yuval_shachaf1/" target="_blank" rel="noopener">לאינסטגרם שלי<span class="sr-only"> (נפתח בלשונית חדשה)</span></a></p>
+    <address class="biz"><strong>יובל שחף</strong> · מנהל סושיאל ויוצר תוכן · פתח תקווה</address>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav aria-label="מידע משפטי ונגישות">
+      <a href='/privacy'>מדיניות פרטיות</a>
+      <a href='/terms'>תנאי שימוש</a>
+      <a href='/privacy#cookies'>מדיניות עוגיות</a>
+      <a href='/accessibility'>הצהרת נגישות</a>
+      <a href='/en' hreflang='en' lang='en'>English</a>
+    </nav>
+    <p>© יובל שחף. הלוגואים והשמות של הלקוחות שייכים להם, ואני מציג אותם רק כדי להראות עבודה משותפת.</p>
+  </div>
+</footer>
+
+<div id="prog"></div>
+<nav id="rail" aria-label="ניווט מהיר"></nav>
+<button id="menu-btn" type="button" aria-label="פתיחת תפריט" aria-controls="drawer" aria-expanded="false"><i></i>תפריט</button>
+<div id="scrim"></div>
+<nav id="drawer" aria-label="תפריט ראשי" aria-hidden="true" inert>
+  <button id="close-menu" type="button" aria-label="סגירת תפריט הניווט" title="סגירת התפריט">×</button>
+  <p class="drawer-title">יובל שחף</p>
+  <div id="navlinks"></div>
+  <div class="quick">
+    <a class="btn alt" href="https://www.instagram.com/yuval_shachaf1/" target="_blank" rel="noopener">לאינסטגרם שלי<span class="sr-only"> (נפתח בלשונית חדשה)</span></a>
+    <a class='btn alt' href='/en' hreflang='en' lang='en'>English version</a>
+  </div>
+</nav>
+
+<button id="motion-btn" type="button" aria-pressed="false" title="עצירת כל התנועות והאנימציות באתר">עצירת תנועה</button>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="תמונה מוגדלת" aria-hidden="true"><button id="lb-close" type="button" aria-label="סגירת התמונה המוגדלת">×</button><img alt=""></div>
+
+<script>
+(function(){
+  /* תפריט צד: קישורים לכל חלק בעמוד */
+  (function(){
+    var ids=['top','services','ai','mgmt','results','collabs','ugc','bts','exp','contact'];
+    var labels=['ראשי','שירותים','סרטוני AI','ניהול סושיאל','משפיענים ותוצאות','שיתופי פעולה והמלצות','UGC','מאחורי הקלעים','ניסיון ולימודים','צרו קשר'];
+    var secs=document.querySelectorAll('section'), box=document.getElementById('navlinks'), links=[], rail=document.getElementById('rail'), rails=[];
+    secs.forEach(function(s,i){ if(!ids[i]) return; s.id=ids[i]; s.style.scrollMarginTop='10px';
+      var a=document.createElement('a'); a.className='nav'; a.href='#'+ids[i]; a.textContent=labels[i]; box.appendChild(a); links.push(a);
+      var r=document.createElement('a'); r.href='#'+ids[i]; r.setAttribute('aria-label',labels[i]); r.innerHTML='<span>'+labels[i]+'</span>'; rail.appendChild(r); rails.push(r); });
+    var btn=document.getElementById('menu-btn'), dr=document.getElementById('drawer'), scrim=document.getElementById('scrim');
+    function open(o){ var was=dr.classList.contains('on'); dr.classList.toggle('on',o); scrim.classList.toggle('on',o); btn.setAttribute('aria-expanded',o);
+      dr.inert=!o; dr.setAttribute('aria-hidden',o?'false':'true');
+      if(o){ setTimeout(function(){ var f=dr.querySelector('a.nav'); if(f) f.focus(); },60); } else if(was){ btn.focus({preventScroll:true}); } }
+    btn.addEventListener('click',function(){ open(true); });
+    document.getElementById('close-menu').addEventListener('click',function(){ open(false); });
+    scrim.addEventListener('click',function(){ open(false); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') open(false); });
+    links.forEach(function(a){ a.addEventListener('click',function(){ open(false); }); });
+    /* הכפתור נעלם בזמן גלילה למטה כדי לא להסתיר תוכן, וחוזר בגלילה למעלה */
+    var lastY=window.scrollY, tk=false;
+    addEventListener('scroll',function(){ if(tk) return; tk=true; requestAnimationFrame(function(){ var y=window.scrollY; if(y>120&&y>lastY+4) btn.classList.add('hide'); else if(y<lastY-4||y<120) btn.classList.remove('hide'); lastY=y; tk=false; }); },{passive:true});
+    var cio=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ var i=[].indexOf.call(secs,e.target); links.forEach(function(l,j){ l.classList.toggle('cur',j===i); }); rails.forEach(function(l,j){ l.classList.toggle('cur',j===i); }); } }); },{rootMargin:'-40% 0px -55% 0px'});
+    secs.forEach(function(s){ cio.observe(s); });
+
+    /* גרפיקה בגלילה: פס התקדמות וכתמי צבע רכים שזזים בקצב שונה */
+    var prog=document.getElementById('prog'), COLORS=['#ffe14d','#ff9bbd','#9fb8ea'], blobs=[], sd=11;
+    function rr(){ sd=(sd*9301+49297)%233280; return sd/233280; }
+    secs.forEach(function(s,i){ if(i===secs.length-1) return;
+      for(var k=0;k<2;k++){ var b=document.createElement('div'); b.className='blob'; var sz=180+Math.round(rr()*160); b.style.width=b.style.height=sz+'px';
+        b.style.background=COLORS[(i+k)%3]; b.style[(i+k)%2?'left':'right']=(-sz*0.35)+'px'; b.style.top=(8+rr()*70)+'%'; s.appendChild(b); blobs.push({el:b,sec:s,sp:(k?-1:1)*(0.06+rr()*0.12)}); } });
+    var busy=false;
+    function onScroll(){ busy=false; var h=document.documentElement.scrollHeight-innerHeight; prog.style.transform='scaleX('+(h>0?Math.min(1,window.scrollY/h):0)+')'; var vh=innerHeight;
+      blobs.forEach(function(f){ var r=f.sec.getBoundingClientRect(); if(r.bottom<-300||r.top>vh+300) return; f.el.style.transform='translate3d(0,'+Math.round((r.top+r.height/2-vh/2)*f.sp)+'px,0)'; }); }
+    addEventListener('scroll',function(){ if(!busy){ busy=true; requestAnimationFrame(onScroll); } },{passive:true}); onScroll();
+  })();
+
+  /* טעינה מהירה בטלפון: תמונות מתחת לקפל נטענות רק כשמגיעים אליהן */
+  document.querySelectorAll('img').forEach(function(im){ if(!im.closest('.hero')) im.loading='lazy'; });
+
+  /* סרטונים שזזים לבד בלי לשכפל: שורה שגולשת נעה לאט קדימה ואחורה. עוצרת בעכבר, במגע או בהפעלת סרטון */
+  function autoPan(el,speed){
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var rtl=getComputedStyle(el).direction==='rtl', dir=1, until=0, fpos=0, lastSet=null, last=0, vis=false;
+    el.classList.add('auto');
+    new IntersectionObserver(function(es){ vis=es[0].isIntersecting; }).observe(el);
+    el.addEventListener('pointerenter',function(e){ if(e.pointerType==='mouse') until=Infinity; });
+    el.addEventListener('pointerleave',function(e){ if(e.pointerType==='mouse') until=performance.now()+1200; });
+    el.addEventListener('pointerdown',function(){ until=Infinity; });
+    ['pointerup','pointercancel'].forEach(function(n){ el.addEventListener(n,function(e){ if(e.pointerType!=='mouse') until=performance.now()+2500; }); });
+    el.addEventListener('focusin',function(){ until=Infinity; });
+    el.addEventListener('focusout',function(){ until=performance.now()+1500; });
+    el.addEventListener('wheel',function(){ until=performance.now()+3000; },{passive:true});
+    el.addEventListener('scroll',function(){ if(lastSet!==null&&Math.abs(el.scrollLeft-lastSet)<2) return; until=Math.max(until===Infinity?0:until,performance.now()+3000); fpos=Math.abs(el.scrollLeft); },{passive:true});
+    function tick(t){ var dt=Math.min((t-last)/1000,0.5); last=t;
+      var max=el.scrollWidth-el.clientWidth;
+      if(vis&&max>8&&t>until&&!document.documentElement.classList.contains('nomotion')&&!el.querySelector('.vid.playing')&&document.visibilityState==='visible'){
+        fpos+=dir*speed*dt; if(fpos>=max){ fpos=max; dir=-1; } if(fpos<=0){ fpos=0; dir=1; }
+        lastSet=rtl?-fpos:fpos; el.scrollLeft=lastSet; }
+      requestAnimationFrame(tick); }
+    requestAnimationFrame(function(t){ last=t; tick(t); });
+  }
+  document.querySelectorAll('.vids,.scroller').forEach(function(e,i){ autoPan(e,i===0?22:28); });
+  /* סרטונים: לחיצה להפעלה, סרטון אחד בכל פעם בכל העמוד */
+  var cards=[].slice.call(document.querySelectorAll('.vid'));
+  function stopAll(except){
+    cards.forEach(function(c){
+      if(c===except) return;
+      var v=c.querySelector('video');
+      if(v){ v.pause(); c.removeChild(v); c.classList.remove('playing'); }
+    });
+  }
+  cards.forEach(function(c){
+    c.addEventListener('click',function(){
+      var v=c.querySelector('video');
+      if(v){ v.paused ? v.play() : v.pause(); return; }
+      stopAll(c);
+      v=document.createElement('video');
+      v.src=c.dataset.src; v.controls=true; v.playsInline=true; v.autoplay=true;
+      c.insertBefore(v,c.firstChild); c.classList.add('playing');
+    });
+  });
+
+  /* סטוריז נעים */
+  function fill(id,prefix,nums){
+    var t=document.getElementById(id), html='';
+    for(var k=0;k<2;k++) nums.forEach(function(n){ html+='<figure class="st"><img loading="lazy" src="images/st/'+prefix+'-'+n[0]+'.jpg" alt=""><div class="un"><img loading="lazy" src="images/st/a-'+prefix+'-'+n[0]+'.jpg" alt=""><bdi>@'+n[1]+'</bdi></div></figure>'; });
+    t.innerHTML=html;
+  }
+  fill('t1','bg',[[6671,'shirchip'],[6672,'shirchip'],[6673,'ifatchencohen'],[6674,'henamar'],[6675,'touring.tom'],[6676,'batia_sorek'],[6677,'leonsh'],[6678,'orilavi'],[6679,'edendanielgabay'],[6680,'liraz.ozeri'],[6681,'shellyeven']]);
+  fill('t2','mh',[[6689,'idan_gelfer'],[6690,'kerenshaham'],[6691,'gal__azar'],[6692,'natasha_travel_blogger'],[6693,'gaya_beer_gurevich'],[6694,'gaya_beer_gurevich'],[6695,'amitbacho'],[6696,'amitbacho'],[6700,'_ronigoldman'],[6701,'mayfoody_'],[6702,'daniel.benaharon'],[6703,'amitbacho'],[6704,'michael_ashuush'],[6705,'anit.yan'],[6706,'yardeniiii'],[6707,'sofash.naim'],[6708,'shahar.shaltiel'],[6709,'yoaveven'],[6710,'odeya_pinto'],[6711,'odeya_pinto']]);
+
+  /* הגדלת תמונה בלחיצה */
+  var lb=document.getElementById('lb'), lbi=lb.querySelector('img');
+  document.addEventListener('click',function(e){
+    var im=e.target.closest('.card .imgs img,.card .one img,.plans img,.res .shot,.track .st>img,.qg img'); if(!im) return;
+    var src=im.tagName==='IMG'?im.currentSrc||im.src:im.querySelector('img').src;
+    lbi.src=src; lb.classList.add('on');
+  });
+  lb.addEventListener('click',function(){ lb.classList.remove('on'); });
+
+  /* ניהול סושיאל: עמודים של 6 לוגואים, עם נקודות למעבר */
+  [].slice.call(document.querySelectorAll('section')).filter(function(s){ var h=s.querySelector('h2'); return h&&(h.textContent.indexOf('ניהול')>-1||h.textContent.indexOf('שיתופי')>-1); }).forEach(function(sec){
+    var row=sec.querySelector('.logos'); if(!row) return;
+    var items=[].slice.call(row.children), per=6;
+    row.classList.add('paged'); row.innerHTML='';
+    for(var i=0;i<items.length;i+=per){ var pg=document.createElement('div'); pg.className='pg'; items.slice(i,i+per).forEach(function(it){ pg.appendChild(it); }); row.appendChild(pg); }
+    var pages=row.children.length, dots=document.createElement('div'); dots.className='dots';
+    for(var p=0;p<pages;p++){ var b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label','עמוד '+(p+1)); (function(n){ b.addEventListener('click',function(){ var dir=getComputedStyle(row).direction==='rtl'?-1:1; row.scrollTo({left:dir*n*row.clientWidth,behavior:'smooth'}); }); })(p); dots.appendChild(b); }
+    row.parentNode.insertBefore(dots,row.nextSibling);
+    function sync(){ var n=Math.round(Math.abs(row.scrollLeft)/row.clientWidth); [].forEach.call(dots.children,function(d,i){ d.classList.toggle('on',i===n); }); }
+    row.addEventListener('scroll',sync,{passive:true}); sync();
+  });
+
+  /* גרירה בעכבר בכל השורות (בטלפון מחליקים כרגיל) */
+  document.querySelectorAll('.scroller,.res,.leads-grid,.logos,.vids,.bts,.qg').forEach(function(el){
+    el.classList.add('drag');
+    var down=false,sx=0,sl=0,moved=false;
+    el.addEventListener('dragstart',function(e){ e.preventDefault(); });
+    el.addEventListener('pointerdown',function(e){ if(e.pointerType!=='mouse'||e.button!==0) return; down=true; moved=false; sx=e.clientX; sl=el.scrollLeft; });
+    window.addEventListener('pointermove',function(e){ if(!down) return; var dx=e.clientX-sx; if(Math.abs(dx)>5){ moved=true; el.classList.add('dragging'); } if(moved) el.scrollLeft=sl-dx; });
+    window.addEventListener('pointerup',function(){ if(!down) return; down=false; el.classList.remove('dragging'); });
+    el.addEventListener('click',function(e){ if(moved){ e.stopPropagation(); e.preventDefault(); moved=false; } },true);
+  });
+
+  
+
+  /* טופס יצירת קשר: נשלח למייל דרך Web3Forms. אינסטגרם הוא אפשרות נפרדת, בכפתור */
+  var MAIL_KEY='b6ac03e7-b6f3-4d44-9223-c72a574e7d22';
+  var form=document.getElementById('lead'), msg=document.getElementById('lead-msg');
+  form.addEventListener('submit',function(e){
+    e.preventDefault(); var f=new FormData(form); if(f.get('website')) return;
+    var sendBtn=form.querySelector('button[type=submit]'), label=sendBtn.textContent;
+    sendBtn.disabled=true; sendBtn.textContent='שולח...'; msg.textContent=''; msg.className='sub';
+    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({access_key:MAIL_KEY,subject:'פנייה חדשה מתיק העבודות',from_name:'תיק העבודות של יובל',name:f.get('name'),phone:f.get('phone'),email:f.get('email'),message:f.get('message'),consent:'אישר/ה את מדיניות הפרטיות'})})
+      .then(function(r){ return r.json(); })
+      .then(function(j){ if(j.success){ msg.textContent='תודה! קיבלתי את הפנייה ואחזור אליכם בהקדם.'; msg.className='sub ok'; form.reset(); } else { throw new Error(j.message); } })
+      .catch(function(){ msg.textContent='משהו השתבש בשליחה. נסו שוב, או כתבו לי באינסטגרם.'; msg.className='sub err'; })
+      .then(function(){ sendBtn.disabled=false; sendBtn.textContent=label; });
+  });
+
+  /* חצים ללחיצה בכל שורה שגוררים (שורות שלא זזות לבד) */
+  var CHEV='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>';
+  document.querySelectorAll('.vids,.scroller,.res,.leads-grid,.logos,.bts,.qg').forEach(function(el){
+    var wrap=document.createElement('div'); wrap.className='arw'; el.parentNode.insertBefore(wrap,el); wrap.appendChild(el);
+    function mk(cls,label){ var b=document.createElement('button'); b.type='button'; b.className='arw-btn '+cls; b.setAttribute('aria-label',label); b.innerHTML=CHEV; wrap.appendChild(b); return b; }
+    var prev=mk('prev','גלילה אחורה בקטגוריה'), next=mk('next','גלילה קדימה בקטגוריה');
+    var paged=el.classList.contains('paged');
+    function go(dir){ var rtl=getComputedStyle(el).direction==='rtl', amt=paged?el.clientWidth:el.clientWidth*0.8; el.scrollBy({left:(rtl?-dir:dir)*amt,behavior:'smooth'}); }
+    prev.addEventListener('click',function(){ go(-1); }); next.addEventListener('click',function(){ go(1); });
+    function sync(){ var max=el.scrollWidth-el.clientWidth, pos=Math.abs(el.scrollLeft); wrap.classList.toggle('noscroll',max<8); prev.disabled=pos<8; next.disabled=pos>=max-8; }
+    el.addEventListener('scroll',sync,{passive:true}); addEventListener('resize',sync); setTimeout(sync,300); sync();
+  });
+
+  /* נגישות: טקסט חלופי, הפעלה במקלדת, חלון תמונה מוגדלת וכפתור עצירת תנועה */
+  (function(){
+    function t(e){ return e?e.textContent.replace(/\s+/g,' ').trim():''; }
+    document.querySelectorAll('.logo').forEach(function(l){ var im=l.querySelector('img'); if(im) im.alt='לוגו '+t(l.querySelector('b')); });
+    document.querySelectorAll('.vid').forEach(function(v){ var im=v.querySelector('img'), c=t(v.querySelector('.cap')); if(im) im.alt='תמונה ממוזערת של הסרטון: '+c;
+      v.setAttribute('role','button'); v.tabIndex=0; v.setAttribute('aria-label','הפעלת סרטון: '+c); v.title='הפעלת הסרטון';
+      v.addEventListener('keydown',function(e){ if((e.key==='Enter'||e.key===' ')&&e.target===v){ e.preventDefault(); v.click(); } }); });
+    document.querySelectorAll('.res figure').forEach(function(f){ var im=f.querySelector('img'); if(im) im.alt='צילום מסך של נתוני אינסטגרם. '+t(f.querySelector('figcaption')); });
+    document.querySelectorAll('.track .st').forEach(function(s){ var im=s.querySelector(':scope > img'), n=t(s.querySelector('bdi')); if(im) im.alt='סטורי של משפיען '+n; var av=s.querySelector('.un img'); if(av) av.alt=''; });
+    document.querySelectorAll('.qg img').forEach(function(im){ im.alt='צילום מסך של פוסט משותף עם Q Gallery'; });
+    document.querySelectorAll('.card').forEach(function(c){ var h=t(c.querySelector('h3')); c.querySelectorAll('.imgs img,.one img,.plans img').forEach(function(im,i){ im.alt=h+', דוגמה '+(i+1); }); });
+    document.querySelectorAll('.xp img').forEach(function(im){ im.alt=''; });
+    var Z='.card .imgs img,.card .one img,.plans img,.res .shot,.track .st>img,.qg img';
+    document.querySelectorAll(Z).forEach(function(z){ var im=z.tagName==='IMG'?z:z.querySelector('img'); z.setAttribute('role','button'); z.tabIndex=0; z.setAttribute('aria-label','הגדלת תמונה: '+(im?im.alt:''));
+      z.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); z.click(); } }); });
+    document.querySelectorAll('.drag').forEach(function(d){ d.setAttribute('tabindex','-1'); });
+
+    /* חלון תמונה מוגדלת: מיקוד, Esc וחזרה למקום */
+    var lb=document.getElementById('lb'), lbc=document.getElementById('lb-close'), back=null;
+    document.addEventListener('click',function(e){ if(e.target.closest(Z)) back=e.target.closest(Z); },true);
+    new MutationObserver(function(){ var on=lb.classList.contains('on'); lb.setAttribute('aria-hidden',on?'false':'true'); if(on){ lbc.focus(); } else if(back){ try{ back.focus({preventScroll:true}); }catch(x){} } }).observe(lb,{attributes:true,attributeFilter:['class']});
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&lb.classList.contains('on')) lb.classList.remove('on'); });
+
+    /* עצירת תנועה */
+    var mb=document.getElementById('motion-btn'), root=document.documentElement;
+    function setMotion(off){ root.classList.toggle('nomotion',off); mb.setAttribute('aria-pressed',off?'true':'false'); }
+    mb.addEventListener('click',function(){ setMotion(!root.classList.contains('nomotion')); });
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) setMotion(true);
+  })();
+
+  /* בטלפונים מסוימים שורה שגוללת התחילה מהקצה השני: מחזירים לתחילה (הפריט הראשון) */
+  (function(){
+    var rows=[].slice.call(document.querySelectorAll('.drag')), touched=new WeakSet();
+    rows.forEach(function(el){ ['pointerdown','wheel','touchstart'].forEach(function(n){ el.addEventListener(n,function(){ touched.add(el); },{passive:true}); }); });
+    function toStart(el){ if(touched.has(el)||el.classList.contains('auto')) return; var f=el.firstElementChild; if(!f) return;
+      var rtl=getComputedStyle(el).direction==='rtl', cr=el.getBoundingClientRect(), fr=f.getBoundingClientRect(), d=rtl?fr.right-cr.right:fr.left-cr.left;
+      if(Math.abs(d)>8) el.scrollLeft+=d; }
+    function all(){ rows.forEach(toStart); }
+    addEventListener('load',function(){ all(); setTimeout(all,500); setTimeout(all,1500); });
+    setTimeout(all,300);
+  })();
+
+  /* אותיות הכותרת קופצות */
+  var bt=document.getElementById('bigtitle'), txt=bt.textContent; bt.textContent='';
+  txt.split('').forEach(function(ch,i){ var s=document.createElement('span'); s.textContent=ch===' '?' ':ch; s.style.animationDelay=(i*0.05)+'s'; bt.appendChild(s); });
+
+  /* כניסה בגלילה + ספירה של מספרים */
+  function count(el){
+    var to=parseFloat(el.dataset.count), dec=+(el.dataset.dec||(String(to).indexOf('.')>-1?1:0)), suf=el.dataset.suffix||'', t0=null;
+    function step(t){ if(!t0) t0=t; var p=Math.min((t-t0)/1400,1), e=1-Math.pow(1-p,3);
+      el.textContent=(to*e).toFixed(dec)+suf; if(p<1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      e.target.querySelectorAll('[data-count]').forEach(count);
+      io.unobserve(e.target); });
+  },{threshold:.15});
+  document.querySelectorAll('.rv,.pop').forEach(function(el){ io.observe(el); });
+  var mio=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); mio.unobserve(e.target);} }); },{threshold:.6});
+  document.querySelectorAll('.mk').forEach(function(el){ mio.observe(el); });
+})();
+</script>
+</body>
+</html>
